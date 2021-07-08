@@ -1,0 +1,77 @@
+﻿@model IEnumerable<PruebaDatos.Models.Usuarios>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<script src="~/js/"></script>
+
+<h1>Usuarios</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo Usuario </a>
+</p>
+<table class="table" id="datos">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ciudad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.correo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(modelItem => item.id)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombres)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apellidos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ciudad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.correo)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <button class="btn btn-outline-success" id="exportarExcel">Exportar a Excel</button>
+    
+</table>
+
